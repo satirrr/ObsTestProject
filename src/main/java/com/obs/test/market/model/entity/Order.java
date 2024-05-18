@@ -7,15 +7,18 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "INVENTORY")
+@Table(name = "`ORDER`")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Inventory {
+public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Integer id;
+
+    @Column(name = "order_no")
+    private String orderNo;
 
     @ManyToOne
     @JoinColumn(name = "item_id", referencedColumnName = "id")
@@ -23,7 +26,4 @@ public class Inventory {
 
     @Column(name = "qty")
     private Integer quantity;
-
-    @Column(name = "type")
-    private String type;
 }

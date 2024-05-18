@@ -3,19 +3,29 @@ logging:
     org:
       springframework:
         jdbc: DEBUG
+#      hibernate:
+#        sql: DEBUG
 
 server:
   port: 9191
 
 spring:
+#  sql:
+#    init:
+#      mode: always
   datasource:
     url: jdbc:h2:mem:testdb
     driverClassName: org.h2.Driver
     username: sa
     password:
+    initialization-mode: always
   jpa:
     database-platform: org.hibernate.dialect.H2Dialect
-    ddl-auto: create
+    ddl-auto: none
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
   h2:
     console:
       enabled: true
